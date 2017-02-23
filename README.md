@@ -1,4 +1,11 @@
-最新使用文档，请查看：http://www.coreseek.cn/products/products-install/
+README
+===========================
+coreseek-4.1-beta源码解读
+****
+###　　　　　　　　　　　　Author:wondywang
+===========================
+
+[最新使用文档](http://www.coreseek.cn/products/products-install/)
 
 目录说明：
 csft-x.y.z：coreseek源代码
