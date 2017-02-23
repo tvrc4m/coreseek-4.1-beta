@@ -1,26 +1,25 @@
 README
-===========================
-coreseek-4.1-beta源码解读
 ****
+coreseek-4.1-beta源码解读
+[最新使用文档](http://www.coreseek.cn/products/products-install/)
+===========================
 ###　　　　　　　　　　　　Author:wondywang
 ===========================
 
-[最新使用文档](http://www.coreseek.cn/products/products-install/)
-
 目录说明：
-csft-x.y.z：coreseek源代码
-mmseg-i.j.k：mmseg源代码
-testpack：测试配置和数据包
+csft-x.y.z：coreseek源代码  
+mmseg-i.j.k：mmseg源代码  
+testpack：测试配置和数据包  
 
-testpack测试说明：
-目录说明：
-api：api接口和测试脚本
-etc：配置文件
-etc/pysource：python数据源脚本
-var：运行数据
-var/data：索引文件
-var/log：搜索日志
-var/test：测试源数据
+testpack测试说明：  
+目录说明：  
+api：api接口和测试脚本  
+etc：配置文件  
+etc/pysource：python数据源脚本  
+var：运行数据  
+var/data：索引文件  
+var/log：搜索日志  
+var/test：测试源数据  
 
 ===========================
 | 配置 | 测试对象  | 对应配置 | 测试数据 | PHP程序  | 测试说明 | 在线说明 |
