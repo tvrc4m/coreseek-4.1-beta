@@ -1,7 +1,6 @@
-README
-****
+#####README
 coreseek-4.1-beta源码解读
-[最新使用文档](http://www.coreseek.cn/products/products-install/)
+*[最新使用文档](http://www.coreseek.cn/products/products-install/)*
 ===========================
 ###　　　　　　　　　　　　Author:wondywang
 ===========================
