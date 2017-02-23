@@ -24,7 +24,7 @@ var/test：测试源数据
 
 ===========================
 | 配置 | 测试对象  | 对应配置 | 测试数据 | PHP程序  | 测试说明 | 在线说明 |
-| :------------ |:---------------|:-----| :------------ |:---------------|:-----|:-----|
+| :------- |:-------|:-----| :----- |:------|:-----|:-----|
 | 配置1 | xml数据源，中文分词与搜索 | etc/csft.conf | var/test/test.xml | api/test_coreseek.php | - | [在线说明](http://www.coreseek.cn/products/products-install/install_on_bsd_linux/) |
 | 配置2 | xml数据源，单字切分与搜索 | etc/csft_cjk.conf | var/test/test.xml  | api/test_coreseek.php | - | [在线说明](http://www.coreseek.cn/products-install/ngram_len_cjk/) |
 | 配置3 | mysql数据源，中文分词与搜索 |  etc/csft_mysql.conf | var/test/documents.sql  | api/test_coreseek.php | 请先将测试数据导入数据库，并设置好配置文件中的MySQL用户密码数据库 | [在线说明](http://www.coreseek.cn/products-install/mysql/) |
