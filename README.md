@@ -65,65 +65,65 @@ var/test：测试源数据
 
 
 **Csft/src目录下的文件用途说明**
-csft-3.2.14/src
-|-- indexer.cpp   索引程序index的入口主函数
-|-- indextool.cpp  工具程序indextool的入口主函数
-|-- llsphinxql.c    sphinql的语法分析器Flex
-|-- md5.cpp  实现md5算法的代码
-|-- md5.h  实现md5算法的代码
-|-- py_helper.cpp 跟python语言交互的接口代码
-|-- py_helper.h  跟python语言交互的接口代码
-|-- py_layer.cpp 跟python语言相关的代码
-|-- py_layer.h   跟python语言相关的代码
-|-- py_source.cpp  跟python语言相关的代码
-|-- py_source.h  跟python语言相关的代码
-|-- py_sphinx.c  跟python语言相关的代码
-|-- py_sphinx_interface.cpp  跟python语言相关的代码
-|-- py_sphinx_interface.h  跟python语言相关的代码
-|-- search.cpp  工具程序search的入口主函数
-|-- searchd.cpp  查询程序searchd的入口主函数
-|-- spelldump.cpp  工具程序spelldump的入口主函数
-|-- sphinx.cpp   主要的逻辑代码，索引建立合并和查询主要的逻辑都在这里。
-|-- sphinx.h  
-|-- sphinx_internal.h
-|-- sphinxcustomsort.inl  支持用户自定义排序的一个文件，用于支持 @custom 的排序方式
-|-- sphinxexcerpt.cpp   产生文本摘要和高亮的代码
-|-- sphinxexcerpt.h  
-|-- sphinxexpr.cpp    跟语法分析器有关的代码
-|-- sphinxexpr.h  跟语法分析器有关的代码
-|-- sphinxexpr.y   语法分析器yacc的输入文件
-|-- sphinxfilter.cpp   sphinx过滤器filter的实现代码
-|-- sphinxfilter.h
-|-- sphinxmetaphone.cpp  实现Metaphone算法的代码，它是一种基于音标的词干组织法。
-|-- sphinxql.l  sphinxql的语法分析器lex的输入文件
-|-- sphinxql.y  sphinxql的语法yacc的输入文件
-|-- sphinxquery.cpp  sphinx查询语句的解析代码，对查询语句进行解析，并生成语法分析树
-|-- sphinxquery.h
-|-- sphinxquery.y sphinxql的语法yacc的输入文件
-|-- sphinxselect.y  sphinxql的语法yacc的输入文件
-|-- sphinxsort.cpp  排序算法实现代码
-|-- sphinxsoundex.cpp  语音编码算法代码
-|-- sphinxstd.cpp 一部分通用的代码，如lock锁，Mutex，随机器等封装好的代码。
-|-- sphinxstd.h 
-|-- sphinxstem.h  词干提炼代码的头文件
-|-- sphinxstemcz.cpp  捷克语词干的提炼代码
-|-- sphinxstemen.cpp  英语的词干提炼代码
-|-- sphinxstemru.cpp 俄语的词干提炼代码
-|-- sphinxstemru.inl  俄语的词干提炼代码
-|-- sphinxtimers.h 计时器代码，这个是用来做sphinx内部性能分析用，看耗时主要在哪部分
-|-- sphinxutils.cpp  对配置文件进行解析的代码
-|-- sphinxutils.h
-|-- sphinxversion.h   定义sphinx版本的宏
-|-- tests.cpp  对分词器进行测试的代码
-|-- tokenizer_zhcn.cpp 中文分词器的实现代码
-|-- tokenizer_zhcn.h 中文分词器的实现代码
-|-- yy.cmd  后面这部分yyxxx.xx的文件都是跟语法分析器相关的文件,不再一一分析。
-|-- yysphinxexpr.c  跟语法分析器相关的文件
-|-- yysphinxexpr.h  跟语法分析器相关的文件
-|-- yysphinxql.c  跟语法分析器相关的文件
-|-- yysphinxql.h  跟语法分析器相关的文件
-|-- yysphinxquery.c  跟语法分析器相关的文件
-|-- yysphinxquery.h  跟语法分析器相关的文件
-|-- yysphinxselect.c  跟语法分析器相关的文件
-`-- yysphinxselect.h  跟语法分析器相关的文件
++   csft-3.2.14/src
++   |-- indexer.cpp   索引程序index的入口主函数
++   |-- indextool.cpp  工具程序indextool的入口主函数
++   |-- llsphinxql.c    sphinql的语法分析器Flex
++   |-- md5.cpp  实现md5算法的代码
++   |-- md5.h  实现md5算法的代码
++   |-- py_helper.cpp 跟python语言交互的接口代码
++   |-- py_helper.h  跟python语言交互的接口代码
++   |-- py_layer.cpp 跟python语言相关的代码
++   |-- py_layer.h   跟python语言相关的代码
++   |-- py_source.cpp  跟python语言相关的代码
++   |-- py_source.h  跟python语言相关的代码
++   |-- py_sphinx.c  跟python语言相关的代码
++   |-- py_sphinx_interface.cpp  跟python语言相关的代码
++   |-- py_sphinx_interface.h  跟python语言相关的代码
++   |-- search.cpp  工具程序search的入口主函数
++   |-- searchd.cpp  查询程序searchd的入口主函数
++   |-- spelldump.cpp  工具程序spelldump的入口主函数
++   |-- sphinx.cpp   主要的逻辑代码，索引建立合并和查询主要的逻辑都在这里。
++   |-- sphinx.h  
++   |-- sphinx_internal.h
++   |-- sphinxcustomsort.inl  支持用户自定义排序的一个文件，用于支持 @custom 的排序方式
++   |-- sphinxexcerpt.cpp   产生文本摘要和高亮的代码
++   |-- sphinxexcerpt.h  
++   |-- sphinxexpr.cpp    跟语法分析器有关的代码
++   |-- sphinxexpr.h  跟语法分析器有关的代码
++   |-- sphinxexpr.y   语法分析器yacc的输入文件
++   |-- sphinxfilter.cpp   sphinx过滤器filter的实现代码
++   |-- sphinxfilter.h
++   |-- sphinxmetaphone.cpp  实现Metaphone算法的代码，它是一种基于音标的词干组织法。
++   |-- sphinxql.l  sphinxql的语法分析器lex的输入文件
++   |-- sphinxql.y  sphinxql的语法yacc的输入文件
++   |-- sphinxquery.cpp  sphinx查询语句的解析代码，对查询语句进行解析，并生成语法分析树
++   |-- sphinxquery.h
++   |-- sphinxquery.y sphinxql的语法yacc的输入文件
++   |-- sphinxselect.y  sphinxql的语法yacc的输入文件
++   |-- sphinxsort.cpp  排序算法实现代码
++   |-- sphinxsoundex.cpp  语音编码算法代码
++   |-- sphinxstd.cpp 一部分通用的代码，如lock锁，Mutex，随机器等封装好的代码。
++   |-- sphinxstd.h 
++   |-- sphinxstem.h  词干提炼代码的头文件
++   |-- sphinxstemcz.cpp  捷克语词干的提炼代码
++   |-- sphinxstemen.cpp  英语的词干提炼代码
++   |-- sphinxstemru.cpp 俄语的词干提炼代码
++   |-- sphinxstemru.inl  俄语的词干提炼代码
++   |-- sphinxtimers.h 计时器代码，这个是用来做sphinx内部性能分析用，看耗时主要在哪部分
++   |-- sphinxutils.cpp  对配置文件进行解析的代码
++   |-- sphinxutils.h
++   |-- sphinxversion.h   定义sphinx版本的宏
++   |-- tests.cpp  对分词器进行测试的代码
++   |-- tokenizer_zhcn.cpp 中文分词器的实现代码
++   |-- tokenizer_zhcn.h 中文分词器的实现代码
++   |-- yy.cmd  后面这部分yyxxx.xx的文件都是跟语法分析器相关的文件,不再一一分析。
++   |-- yysphinxexpr.c  跟语法分析器相关的文件
++   |-- yysphinxexpr.h  跟语法分析器相关的文件
++   |-- yysphinxql.c  跟语法分析器相关的文件
++   |-- yysphinxql.h  跟语法分析器相关的文件
++   |-- yysphinxquery.c  跟语法分析器相关的文件
++   |-- yysphinxquery.h  跟语法分析器相关的文件
++   |-- yysphinxselect.c  跟语法分析器相关的文件
++   `-- yysphinxselect.h  跟语法分析器相关的文件
 
