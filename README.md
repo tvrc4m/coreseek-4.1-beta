@@ -21,7 +21,7 @@ var/data：索引文件
 var/log：搜索日志  
 var/test：测试源数据  
 
----------------------------
+===========================
 ####目录结构
 +   |-- csft-3.2.14    coreseek源代码
 +   |   |-- api  包括java,ruby,C/C++，php的sphinx访问api接口
