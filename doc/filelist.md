@@ -1,59 +1,60 @@
 ####目录结构
-|-- csft-3.2.14    coreseek源代码
-|   |-- api  包括java,ruby,C/C++，php的sphinx访问api接口
-|   |-- codeblocks    code block的项目工程文件
-|   |-- config     编译环境的配置文件
-|   |-- contrib   放置第三方扩展的api接口和常用脚本，但目前基本为空
-|   |-- csft.doc   空置
-|   |-- csft.pytest   python的一个脚本，可以忽略
-|   |-- doc    用户手册和部分说明文档。对使用和阅读代码有作用，强烈建议阅读。
-|   |-- example.sql   生成手册和测试里面提到的示例数据库schema的sql脚本
-|   |-- libexpat   vc的工程项目文件
-|   |-- libstemmer_c    vc的工程项目文件
-|   |-- misc  一些辅助文件，可以忽略
-|   |-- mysqlse  sphinxSE的文件，是mysql的引擎文件，放在编译mysql的时候进行编译
-|   |-- pymmseg   mmseg提供出来的python接口
-|   |-- src  coreseek源代码目录。核心代码全部在这里
-|   |-- test   测试代码
-|   `-- win   windows下的工程配置文件
-|-- mmseg-3.2.14   mmseg源代码
-|   |-- config   编译配置文件
-|   |-- data  词典文件
-|   |-- python  python接口api代码
-|   |-- ruby  ruby接口api代码
-|   |-- script   python的一部分生成字典的脚本
-|   |-- src  mmseg的源代码目录，核心代码都在这里
-`-- testpack   测试配置和数据包
-    |-- api  测试环境需要的api接口和测试脚本
-    |-- etc 测试环境配置文件
-`-- var 测试环境运行数据
+
+-|-- csft-3.2.14    coreseek源代码
+-|   |-- api  包括java,ruby,C/C++，php的sphinx访问api接口
+-|   |-- codeblocks    code block的项目工程文件
+-|   |-- config     编译环境的配置文件
+-|   |-- contrib   放置第三方扩展的api接口和常用脚本，但目前基本为空
+-|   |-- csft.doc   空置
+-|   |-- csft.pytest   python的一个脚本，可以忽略
+-|   |-- doc    用户手册和部分说明文档。对使用和阅读代码有作用，强烈建议阅读。
+-|   |-- example.sql   生成手册和测试里面提到的示例数据库schema的sql脚本
+-|   |-- libexpat   vc的工程项目文件
+-|   |-- libstemmer_c    vc的工程项目文件
+-|   |-- misc  一些辅助文件，可以忽略
+-|   |-- mysqlse  sphinxSE的文件，是mysql的引擎文件，放在编译mysql的时候进行编译
+-|   |-- pymmseg   mmseg提供出来的python接口
+-|   |-- src  coreseek源代码目录。核心代码全部在这里
+-|   |-- test   测试代码
+-|   `-- win   windows下的工程配置文件
+-|-- mmseg-3.2.14   mmseg源代码
+-|   |-- config   编译配置文件
+-|   |-- data  词典文件
+-|   |-- python  python接口api代码
+-|   |-- ruby  ruby接口api代码
+-|   |-- script   python的一部分生成字典的脚本
+-|   |-- src  mmseg的源代码目录，核心代码都在这里
+-`-- testpack   测试配置和数据包
+-    |-- api  测试环境需要的api接口和测试脚本
+-    |-- etc 测试环境配置文件
+-`-- var 测试环境运行数据
 
 
 **Csft/src目录下的文件用途说明**
-csft-3.2.14/src
-|-- indexer.cpp   索引程序index的入口主函数
-|-- indextool.cpp  工具程序indextool的入口主函数
-|-- llsphinxql.c    sphinql的语法分析器Flex
-|-- md5.cpp  实现md5算法的代码
-|-- md5.h  实现md5算法的代码
-|-- py_helper.cpp 跟python语言交互的接口代码
-|-- py_helper.h  跟python语言交互的接口代码
-|-- py_layer.cpp 跟python语言相关的代码
-|-- py_layer.h   跟python语言相关的代码
-|-- py_source.cpp  跟python语言相关的代码
-|-- py_source.h  跟python语言相关的代码
-|-- py_sphinx.c  跟python语言相关的代码
-|-- py_sphinx_interface.cpp  跟python语言相关的代码
-|-- py_sphinx_interface.h  跟python语言相关的代码
-|-- search.cpp  工具程序search的入口主函数
-|-- searchd.cpp  查询程序searchd的入口主函数
-|-- spelldump.cpp  工具程序spelldump的入口主函数
-|-- sphinx.cpp   主要的逻辑代码，索引建立合并和查询主要的逻辑都在这里。
-|-- sphinx.h  
-|-- sphinx_internal.h
-|-- sphinxcustomsort.inl  支持用户自定义排序的一个文件，用于支持 @custom 的排序方式
-|-- sphinxexcerpt.cpp   产生文本摘要和高亮的代码
-|-- sphinxexcerpt.h  
+-csft-3.2.14/src
+-|-- indexer.cpp   索引程序index的入口主函数
+-|-- indextool.cpp  工具程序indextool的入口主函数
+-|-- llsphinxql.c    sphinql的语法分析器Flex
+-|-- md5.cpp  实现md5算法的代码
+-|-- md5.h  实现md5算法的代码
+-|-- py_helper.cpp 跟python语言交互的接口代码
+-|-- py_helper.h  跟python语言交互的接口代码
+-|-- py_layer.cpp 跟python语言相关的代码
+-|-- py_layer.h   跟python语言相关的代码
+-|-- py_source.cpp  跟python语言相关的代码
+-|-- py_source.h  跟python语言相关的代码
+-|-- py_sphinx.c  跟python语言相关的代码
+-|-- py_sphinx_interface.cpp  跟python语言相关的代码
+-|-- py_sphinx_interface.h  跟python语言相关的代码
+-|-- search.cpp  工具程序search的入口主函数
+-|-- searchd.cpp  查询程序searchd的入口主函数
+-|-- spelldump.cpp  工具程序spelldump的入口主函数
+-|-- sphinx.cpp   主要的逻辑代码，索引建立合并和查询主要的逻辑都在这里。
+-|-- sphinx.h  
+-|-- sphinx_internal.h
+-|-- sphinxcustomsort.inl  支持用户自定义排序的一个文件，用于支持 @custom 的排序方式
+-|-- sphinxexcerpt.cpp   产生文本摘要和高亮的代码
+-|-- sphinxexcerpt.h  
 |-- sphinxexpr.cpp    跟语法分析器有关的代码
 |-- sphinxexpr.h  跟语法分析器有关的代码
 |-- sphinxexpr.y   语法分析器yacc的输入文件
