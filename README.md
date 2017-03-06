@@ -23,7 +23,7 @@ var/test：测试源数据  
 
 ===========================
 ####目录结构
-+   |-- csft-3.2.14    coreseek源代码
++   |-- csft-4.1    coreseek源代码
 +   |   |-- api  包括java,ruby,C/C++，php的sphinx访问api接口
 +   |   |-- codeblocks    code block的项目工程文件
 +   |   |-- config     编译环境的配置文件
@@ -54,7 +54,7 @@ var/test：测试源数据  
 
 
 **Csft/src目录下的文件用途说明**
-+   csft-3.2.14/src
++   csft-4.1/src
 +   |-- indexer.cpp   索引程序index的入口主函数
 +   |-- indextool.cpp  工具程序indextool的入口主函数
 +   |-- llsphinxql.c    sphinql的语法分析器Flex
