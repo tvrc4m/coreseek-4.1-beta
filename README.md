@@ -1,7 +1,6 @@
 #####README
 coreseek-4.1-beta源码解读
 [最新使用文档](http://www.coreseek.cn/products/products-install/)  
-
 ===========================
 #####　　　　　　　Author:wondywang
 ===========================
@@ -115,6 +114,7 @@ var/test：测试源数据  
 +   |-- yysphinxquery.h  跟语法分析器相关的文件
 +   |-- yysphinxselect.c  跟语法分析器相关的文件
 +   `-- yysphinxselect.h  跟语法分析器相关的文件
+
 
 ===========================
 | 配置 | 测试对象  | 对应配置 | 测试数据 | PHP程序  | 测试说明 | 在线说明 |
