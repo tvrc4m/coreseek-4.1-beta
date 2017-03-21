@@ -1,0 +1,61 @@
+BM25 因子
+BM25是一个只依赖于匹配关键字出现频率的浮点数值。Frequencies in question are in-document and in-collection frequencies.基本上，关键字和/或在文档字段中出现多次，那个文档的权重越大，这是很罕见的。
+
+标准的BM25实现在Wikipedia article on BM25解释的非常明白，但是Sphinx使用的是稍微修改过的变体。首先，考虑到性能原因，我们计算所有的关键字在文档中出现的次数，而不只是计算匹配的关键字。例如（@title “hello world”）查询只在标题中匹配“hello world”的单一实例，它的BM25的计算结果和（hello world）查询一样，(hello world)查询文档中匹配所有同时出现关键字的实例。第二，我们不强制任何文档属性，因此不需要文档的长度，这样我们也忽略了文档长度（等于在原始的BM25中设置 b=0）。全部的变化都是内部的，在我们的测试中，使用原始BM25得到的计算结果不足够说明排序关联性能作用的改善。在Sphinx中使用的BM25计算算法的伪代码如下：
+
+BM25 = 0
+foreach ( keyword in matching_keywords )
+{
+    n = total_matching_documents ( keyword )
+    N = total_documents_in_collection
+    k1 = 1.2
+ 
+    TF = current_document_occurrence_count ( keyword )
+    IDF = log((N-n+1)/n) / log(1+N)
+    BM25 = BM25 + TF*IDF/(TF+k1)
+}
+ 
+// normalize to 0..1 range
+BM25 = 0.5 + BM25 / ( 2*num_keywords ( query ) )
+TF是指在一个文档中被排序的检索词频。它是基于在一个文档内关键字出现的次数，但是因为用对数函数平滑处理，因此出现1000次并不会得到1000倍的影响，而是1。
+
+TF一般在0到1之间变化，但是在条件k=1.2的情况下，它实现的变化范围是0.4545…到1之间。
+
+IDF是指在整个文档集中的反向文档频率。常见词（如“the” or “to”等）的IDF值小，罕见词的IDF值大，当一个关键词只在一个文档中出现时，达到峰值IDF＝1，而当关键词在每个索引文档都出现时，IDF＝－1。
+
+因此，就像你上面看到的代码，BM25值当关键字出现频率小时会增大，相反在文档中频繁出现的话，BM25值会减小。要注意的是当关键词过度频繁匹配索引文档超过一半以上时会降低BM25的值！事实上，当一个关键词出现在90%的文档中而很少的文档没有包含关键词时，或许大概会更有趣，应该得到更大的权重。
+
+短语相似因子
+短语相似因子，与上面BM25截然相反，根本不关心关键词出现的频率和查询关键词在文档中的位置。代替BM25使用的关键词频率，Sphinx分析关键词在每个字段的位置，并且用最长公共子串算法（LCS）计算关键词和文档的短语相似度。基本上，每个字段的短语相似度就是一些关键词在文档中出现并且顺序和查询一致。这里是一些例子：
+
+1) query = one two three, field = one and two three
+field_phrase_weight = 2 (because 2-keyword long "two three" subphrase matched)
+ 
+2) query = one two three, field = one and two and three
+field_phrase_weight = 1 (because single keywords matched but no subphrase did)
+ 
+3) query = one two three, field = nothing matches at all
+field_phrase_weight = 0
+每个字段的短语权重将乘以每个字段的权重值，字段权重值通过调用SetFieldWeights() API或者在SphinxQL中的field_weights选项设置的，然后再全部相加起来生成每个文档的短语权重。字段的默认权重值为1，不能设成小于1的值。整个短语相似算法的伪代码如下所示：
+
+doc_phrase_weight = 0
+foreach ( field in matching_fields )
+{
+   field_phrase_weight = max_common_subsequence_length ( query, field )
+   doc_phrase_weight += user_weight ( field ) * field_phrase_weight
+}
+Example:
+
+doc_title = hello world
+doc_body = the world is a wonderful place
+ 
+query = hello world
+query_title_weight = 5
+query_body_weight = 3
+ 
+title_phrase_weight = 2
+body_phrase_weight = 1
+doc_phrase_weight = 2*5+3*1 = 13
+正是由于短语相似因子保证了越相似的短语将排在前面，而精确匹配的短语将排在非常前面。可以使用字段权重值来调整排序，例如，上面例子中，匹配单个关键字的标题的权重值和匹配两个关键字短语的内容一样。
+
+短语相似设计成比BM25需要更多的计算，因为它需要计算所有在文档中匹配的关键词，而不仅仅只计算文档本身。Sphinx默认使用短语相似算法，因为我们相信这个产生更好的搜索质量。当然你也可以选择使用一个更轻量级的排序器来省掉这些昂贵的相似计算。
