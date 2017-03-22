@@ -128,15 +128,15 @@ var/test：测试源数据  
 | 配置6 | RT实时索引，中文分词与搜索 | etc/csft_rtindex.conf | - | api/test_coreseek_rtindex.php | coreseek-4.y.z测试 | [在线说明](http://www.coreseek.cn/products-install/rt-indexes/) |
 | 配置6 | RT实时索引，单字切分与搜索 | etc/csft_rtindex_cjk.conf | - | api/test_coreseek_rtindex.php | coreseek-4.y.z测试 | [在线说明](http://www.coreseek.cn/products-install/rt-indexes/) |
 
-##安装mmseg
-$ cd mmseg-3.2.14
-$ ./bootstrap    #输出的warning信息可以忽略，如果出现error则需要解决
-$ ./configure --prefix=/usr/local/mmseg3
-$ make && make install
-$ cd ..
+##安装mmseg 
+$ cd mmseg-3.2.14 
+$ ./bootstrap    #输出的warning信息可以忽略，如果出现error则需要解决 
+$ ./configure --prefix=/usr/local/mmseg3 
+$ make && make install 
+$ cd .. 
 
-##安装coreseek
-$ cd csft-3.2.14 或者 cd csft-4.0.1 或者 cd csft-4.1
-$ sh buildconf.sh    #输出的warning信息可以忽略，如果出现error则需要解决
-$ ./configure --prefix=/usr/local/coreseek  --without-unixodbc --with-mmseg --with-mmseg-includes=/usr/local/mmseg3/include/mmseg/ --with-mmseg-libs=/usr/local/mmseg3/lib/ --with-mysql --enable-id64    ##如果提示mysql问题，可以查看MySQL数据源安装说明
-$ make && make install
+##安装coreseek 
+$ cd csft-3.2.14 或者 cd csft-4.0.1 或者 cd csft-4.1 
+$ sh buildconf.sh    #输出的warning信息可以忽略，如果出现error则需要解决 
+$ ./configure --prefix=/usr/local/coreseek  --without-unixodbc --with-mmseg --with-mmseg-includes=/usr/local/mmseg3/include/mmseg/ --with-mmseg-libs=/usr/local/mmseg3/lib/ --with-mysql --enable-id64    ##如果提示mysql问题，可以查看MySQL数据源安装说明 
+$ make && make install 
