@@ -141,3 +141,6 @@ $ cd csft-3.2.14 或者 cd csft-4.0.1 或者 cd csft-4.1
 $ sh buildconf.sh    #输出的warning信息可以忽略，如果出现error则需要解决  
 $ ./configure --prefix=/usr/local/coreseek  --without-unixodbc --with-mmseg --with-mmseg-includes=/usr/local/mmseg3/include/mmseg/ --with-mmseg-libs=/usr/local/mmseg3/lib/ --with-mysql --enable-id64    ##如果提示mysql问题，可以查看MySQL数据源安装说明  
 $ make && make install  
+
+如果你的gcc版本在4.7以上，编译的时候可能会因为sphinx的一个bug报错  
+可以直接修改src/sphixexpr.cpp文件的1746, 1777和1823行，将三行中的ExprEval改为this->ExprEval。  
