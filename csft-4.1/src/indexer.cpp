@@ -1128,6 +1128,7 @@ bool DoIndex ( const CSphConfigSection & hIndex, const char * sIndexName, const 
 		// if searchd is running, we want to reindex to .tmp files
 		CSphString sIndexPath;
 		sIndexPath.SetSprintf ( g_bRotate ? "%s.tmp" : "%s", hIndex["path"].cstr() );
+		fprintf(stdout, "sIndexName: %s, index file: %s\n", sIndexName, hIndex["path"].cstr() );
 
 		// do index
 		CSphIndex * pIndex = sphCreateIndexPhrase ( sIndexName, sIndexPath.cstr() );
