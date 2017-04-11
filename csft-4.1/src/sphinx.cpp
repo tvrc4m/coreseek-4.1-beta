@@ -4790,6 +4790,7 @@ void CSphTokenizer_UTF8MMSeg::SetBuffer ( BYTE * sBuffer, int iLength )
 		sphDie ( " Tokenizer initialization failure. " );
 	m_segoffset = 0;
 	m_segToken = (char*)m_pCur;
+	fprintf(stdout, "m_segToken: %s\n", (char*)m_pCur );
 }
 
 bool	CSphTokenizer_UTF8MMSeg::IsSegment(const BYTE * pCur)
