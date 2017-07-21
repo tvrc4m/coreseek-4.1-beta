@@ -20133,6 +20133,7 @@ void CSphSource_Document::BuildHits ( CSphString & sError, bool bSkipEndMarker )
 			// tokenize and build hits
 			m_tStats.m_iTotalBytes += iFieldBytes;
 
+			fprintf(stdout, "%s:%d sField:%s\n", __FILE__, __LINE__, sField);	//索引句在这里
 			m_pTokenizer->SetBuffer ( sField, iFieldBytes );
 
 			m_tState.m_iHitPos = HITMAN::Create ( m_tState.m_iField, m_tState.m_iStartPos );
