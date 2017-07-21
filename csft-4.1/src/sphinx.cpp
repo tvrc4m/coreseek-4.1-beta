@@ -4768,9 +4768,9 @@ CSphTokenizer_UTF8MMSeg::CSphTokenizer_UTF8MMSeg ()
 	/*
 		
 	*/
-	dRemaps.Add ( CSphRemapRange ( 0x4e00, 0x9fff, 0x4e00 ) );
-	dRemaps.Add ( CSphRemapRange ( 0xFF00, 0xFFFF, 0xFF00 ) );
-	dRemaps.Add ( CSphRemapRange ( 0x3000, 0x303F, 0x3000 ) );
+	dRemaps.Add ( CSphRemapRange ( 0x4e00, 0x9fff, 0x4e00 ) );	//汉字的unicode范围
+	dRemaps.Add ( CSphRemapRange ( 0xFF00, 0xFFFF, 0xFF00 ) );	//半形及全形字符
+	dRemaps.Add ( CSphRemapRange ( 0x3000, 0x303F, 0x3000 ) );	//CJK 符号和标点
 		
 	m_tLC.AddRemaps ( dRemaps,
 		FLAG_CODEPOINT_NGRAM | FLAG_CODEPOINT_SPECIAL ); // !COMMIT support other n-gram lengths than 1
