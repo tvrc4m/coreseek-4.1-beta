@@ -1051,6 +1051,7 @@ static void FixupDegenerates ( XQNode_t * pNode )
 
 bool XQParser_t::Parse ( XQQuery_t & tParsed, const char * sQuery, const ISphTokenizer * pTokenizer, const CSphSchema * pSchema, CSphDict * pDict, int iStopwordStep )
 {
+	//get a crash here for clone tokenizer
 	CSphScopedPtr<ISphTokenizer> pMyTokenizer ( pTokenizer->Clone ( true ) );
 	pMyTokenizer->AddSpecials ( "()|-!@~\"/^$<" );
 	pMyTokenizer->EnableQueryParserMode ( true );
